@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from "react";
 function App() {
+const [input,setInput] = useState(0)
+const [input2,setInput2] = useState(0)
+const [result,setResult] = useState(0)
+const sum = ()=>{
+setResult(+input+(+input2))
+}
+const minus = ()=>{
+  setResult(+input-input2)
+  }
+
+  const umnosh = ()=>{
+    setResult(+input*input2)
+    }
+    const del = ()=>{
+      setResult(+input/input2)
+      }
+      
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <input type="number" onChange={(e)=>setInput(e.target.value)} />
+     <input type="number" onChange={(e)=>setInput2(e.target.value)}/>
+     <div>{result}</div>
+     <button onClick={sum}>+</button>
+     <button onClick={minus} >-</button>
+     <button onClick={umnosh} >*</button>
+     <button onClick={del} >/</button>
     </div>
   );
 }
